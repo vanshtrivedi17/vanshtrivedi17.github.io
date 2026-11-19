@@ -16,9 +16,10 @@ export const navigation = [
 export const leher = {
   title: "Leher",
   context: "Founder · January 2025–January 2026",
-  summary: "I founded and shipped a startup networking platform to help aspiring entrepreneurs find early-stage startups and potential co-founders.",
+  website: "https://leher.web.app/",
+  summary: "A startup networking platform that helps aspiring entrepreneurs discover early-stage startups and find potential co-founders.",
   contribution: "I built authentication, onboarding, and co-founder matching with Next.js, Supabase, and PostgreSQL. I led deployment, user acquisition, and partnerships, and used founder feedback to improve discovery.",
-  results: [["100+", "users"], ["8+", "international startup partnerships"]],
+  results: [["100+", "users"], ["8+", "startup partnerships"]],
   steps: [
     { title: "Discover", summary: "Explore early-stage startups." },
     { title: "Match", summary: "Find potential co-founders." },
@@ -38,13 +39,12 @@ export const pathfinding = {
   takeaway: "On my dynamic 30 × 30 grid, D* Lite recorded the lowest mean computation time, memory usage, and number of nodes explored. A* also cut mean computation time from 107.56 ms to 6.77 ms compared with Dijkstra.",
 };
 
-export const standout = {
-  title: "Standout",
-  context: "MobiOffice Software Innovations · 2025",
-  summary: "Independently designed and built Standout, a platform for students to showcase university applications and résumés.",
-};
-
 export const otherProjects = [
+  {
+    title: "Standout",
+    context: "MobiOffice Software Innovations · 2025",
+    summary: "Independently designed and built Standout, a platform for students to showcase university applications and résumés.",
+  },
   {
     title: "Voithos",
     context: "Independent project · 2025",
@@ -78,7 +78,6 @@ export const experience = [
     role: "Web Development Intern",
     dates: "May–June 2025",
     summary: "My technical SEO work helped move most target keywords from around page 11 to page 1 in Google results. I also built responsive interfaces from Figma designs, maintained code in GitHub, and updated XML sitemaps, robots.txt, and analytics integrations.",
-    project: { href: "#standout", label: "View Standout" },
   },
   {
     organization: "Eastern Techno Solutions, now Kombee",

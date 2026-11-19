@@ -4,7 +4,7 @@ import PathfindingDemo from "./components/pathfinding-demo";
 import SectionNav from "./components/section-nav";
 import {
   education, experience, leadership, leher, otherProjects, pathfinding,
-  profile, recognition, research, skills, standout, xerox,
+  profile, recognition, research, skills, xerox,
 } from "../content/portfolio";
 
 export default function Home() {
@@ -37,21 +37,29 @@ export default function Home() {
 
         <section id="work" aria-labelledby="work-heading">
           <h2 id="work-heading">Selected work</h2>
-          <article className="lead-project" id="leher">
-            <div className="lead-copy">
-              <h3>{leher.title}</h3>
-              <p className="meta">{leher.context}</p>
-              <p>{leher.summary}</p>
-              <p>{leher.contribution}</p>
-              <dl className="results">
-                {leher.results.map(([value, label]) => (
-                  <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
-                ))}
-              </dl>
-            </div>
-            <DiscoveryFlow />
-          </article>
           <div className="featured-projects">
+            <article className="lead-project" id="leher">
+              <div className="lead-copy">
+                <div className="leher-identity">
+                  <Image src="/leher-logo.webp" alt="" width={64} height={64} />
+                  <h3>{leher.title}</h3>
+                </div>
+                <p className="meta">{leher.context}</p>
+                <p>{leher.summary}</p>
+                <dl className="results">
+                  {leher.results.map(([value, label]) => (
+                    <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+                  ))}
+                </dl>
+                <p className="leher-contribution">{leher.contribution}</p>
+                <a className="primary leher-visit" href={leher.website}>Visit Website <span aria-hidden="true">↗</span></a>
+              </div>
+              <figure className="leher-preview">
+                <Image src="/leher-homepage.webp" alt="Leher’s public homepage, showing its startup platform and Get Started button" width={1440} height={960} />
+                <figcaption>Leher homepage</figcaption>
+              </figure>
+              <DiscoveryFlow />
+            </article>
             <article className="feature path-card" id="pathfinding">
               <p className="meta">{pathfinding.context}</p>
               <h3>{pathfinding.title}</h3>
@@ -76,21 +84,19 @@ export default function Home() {
                 <p>{pathfinding.takeaway}</p>
               </section>
             </article>
-            <article className="feature standout-card" id="standout">
-              <p className="meta">{standout.context}</p>
-              <h3>{standout.title}</h3>
-              <p>{standout.summary}</p>
-            </article>
           </div>
-          <div className="compact-grid">
-            {otherProjects.map(project => (
-              <article key={project.title}>
-                <h3>{project.title}</h3>
-                <p className="meta">{project.context}</p>
-                <p>{project.summary}</p>
-              </article>
-            ))}
-          </div>
+          <section className="secondary-projects" aria-labelledby="other-work-heading">
+            <h3 id="other-work-heading">Other projects</h3>
+            <div className="compact-grid">
+              {otherProjects.map(project => (
+                <article key={project.title}>
+                  <h4>{project.title}</h4>
+                  <p className="meta">{project.context}</p>
+                  <p>{project.summary}</p>
+                </article>
+              ))}
+            </div>
+          </section>
         </section>
 
         <section id="research" aria-labelledby="research-heading">
@@ -118,7 +124,6 @@ export default function Home() {
                   <h3>{job.role}</h3>
                   <p className="organization">{job.organization}</p>
                   <p>{job.summary}</p>
-                  {job.project && <a className="text-link" href={job.project.href}>{job.project.label}</a>}
                 </div>
               </li>
             ))}

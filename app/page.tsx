@@ -51,14 +51,30 @@ export default function Home() {
             </div>
             <DiscoveryFlow />
           </article>
-          <div className="feature-grid">
-            <article className="feature path-card">
+          <div className="featured-projects">
+            <article className="feature path-card" id="pathfinding">
               <p className="meta">{pathfinding.context}</p>
               <h3>{pathfinding.title}</h3>
               <p>{pathfinding.summary}</p>
-              <p>{pathfinding.contribution}</p>
-              <p className="evidence">{pathfinding.result}</p>
               <PathfindingDemo />
+              <section className="essay-results" aria-labelledby="essay-results-heading">
+                <h4 id="essay-results-heading">Extended Essay results</h4>
+                <table>
+                  <caption>Python measurements averaged across three trials</caption>
+                  <thead><tr>
+                    <th scope="col">Algorithm</th>
+                    <th scope="col">Mean computation time</th>
+                    <th scope="col">Mean memory usage</th>
+                    <th scope="col">Mean nodes explored</th>
+                  </tr></thead>
+                  <tbody>
+                    {pathfinding.results.map(([algorithm, time, memory, nodes]) => (
+                      <tr key={algorithm}><th scope="row">{algorithm}</th><td>{time}</td><td>{memory}</td><td>{nodes}</td></tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p>{pathfinding.takeaway}</p>
+              </section>
             </article>
             <article className="feature standout-card" id="standout">
               <p className="meta">{standout.context}</p>

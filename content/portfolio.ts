@@ -27,11 +27,15 @@ export const leher = {
 };
 
 export const pathfinding = {
-  title: "Comparative Analysis of Pathfinding Algorithms",
-  context: "IB Computer Science Extended Essay · Completed in 2026",
-  summary: "I implemented A*, Dijkstra’s algorithm, and D* Lite in Python and compared runtime and pathfinding accuracy on a 30 × 30 grid.",
-  contribution: "I documented my experimental design, results, and limitations in a 4,000-word essay.",
-  result: "D* Lite was fastest in my experiment at approximately 5 ms.",
+  title: "Comparing Pathfinding Algorithms on a Changing Grid",
+  context: "IB Computer Science Extended Essay · 2026",
+  summary: "For my IB Computer Science Extended Essay, I wrote a 4,000-word paper comparing Dijkstra’s algorithm, A*, and D* Lite. I implemented all three in Python and measured computation time, memory usage, and nodes explored as obstacles changed on a 30 × 30 grid.",
+  results: [
+    ["Dijkstra", "107.56 ms", "125.9 kB", "717.8"],
+    ["A*", "6.77 ms", "69.6 kB", "403.0"],
+    ["D* Lite", "4.50 ms", "9.0 kB", "243.1"],
+  ],
+  takeaway: "On my dynamic 30 × 30 grid, D* Lite recorded the lowest mean computation time, memory usage, and number of nodes explored. A* also cut mean computation time from 107.56 ms to 6.77 ms compared with Dijkstra.",
 };
 
 export const standout = {

@@ -88,7 +88,7 @@ export const experience = [
 ];
 
 export const education = [
-  { school: "University of Toronto, New College", details: "Computer Science · September 2026–present", extra: "Selected first-year coursework (including in-progress or scheduled courses): CSC110, CSC111, MAT148, MAT149, MAT223, and STA130." },
+  { school: "University of Toronto, St. George", details: "Computer Science · September 2026–present", extra: "Selected first-year coursework (including in-progress or scheduled courses): CSC110, CSC111, MAT148, MAT149, MAT223, and STA130." },
   { school: "Fountainhead School", details: "IB Diploma · Surat, India · 2024–2026", extra: "38/45 diploma score · Physics HL: 7" },
 ];
 

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Paper and ink match the palette in globals.css. -->
+  <rect width="32" height="32" rx="5" fill="#f7f6f1"/>
+  <path d="M3 8h4l3.5 11L14 8h4l-5.5 16h-4zM19 8h10v3.5h-3V24h-4V11.5h-3z" fill="#161b2a"/>
+</svg>

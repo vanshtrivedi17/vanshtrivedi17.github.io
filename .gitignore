@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+.env*
+*.pdf
+*.PDF
+*.pem
+*.key
+*.p12
+*.pfx
+/private/
+/source-materials/
+/academic-records/

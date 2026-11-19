@@ -1,7 +1,7 @@
 export const profile = {
   name: "Vansh Trivedi",
-  subtitle: "Computer Science at the University of Toronto",
-  intro: "I’m a first-year CS student in Toronto. I founded Leher, a platform that helps people find startups and potential co-founders. I now contribute to UTESCA’s website and research systematic trading strategies with U of T’s Quantitative Finance Club.",
+  subtitle: "University of Toronto · Computer Science",
+  intro: "I founded and built Leher, a startup networking platform that reached 100+ users and secured 8+ international startup partnerships. At U of T, I contribute to UTESCA’s live website and research systematic trading strategies with the Quantitative Finance Club.",
   email: "vansh.trivedi17@gmail.com",
   linkedin: "https://www.linkedin.com/in/vansh-trivedi-928486260/",
   location: "Toronto, Ontario",
@@ -17,9 +17,13 @@ export const leher = {
   title: "Leher",
   context: "Founder · January 2025–January 2026",
   summary: "I founded and shipped a startup networking platform to help aspiring entrepreneurs find early-stage startups and potential co-founders.",
-  contribution: "I led product development, deployment, onboarding, discovery, and matching. I used founder feedback to improve the experience and led user acquisition and partnerships.",
+  contribution: "I built authentication, onboarding, and co-founder matching with Next.js, Supabase, and PostgreSQL. I led deployment, user acquisition, and partnerships, and used founder feedback to improve discovery.",
   results: [["100+", "users"], ["8+", "international startup partnerships"]],
-  stack: "Next.js · Supabase · PostgreSQL",
+  steps: [
+    { title: "Discover", summary: "Explore early-stage startups." },
+    { title: "Match", summary: "Find potential co-founders." },
+    { title: "Connect", summary: "Start a conversation." },
+  ],
 };
 
 export const pathfinding = {
@@ -33,7 +37,7 @@ export const pathfinding = {
 export const standout = {
   title: "Standout",
   context: "MobiOffice Software Innovations · 2025",
-  summary: "Students needed a way to showcase their university applications and résumés. During my MobiOffice internship, I independently designed and developed a platform for presenting those materials.",
+  summary: "Independently designed and built Standout, a platform for students to showcase university applications and résumés.",
 };
 
 export const otherProjects = [
@@ -54,7 +58,7 @@ export const research = {
   role: "Research Associate · November 2026–present",
   threads: [
     { title: "Adaptive Momentum and Mean Reversion Across Market Regimes", summary: "I’m investigating how momentum and mean-reversion strategies behave under different market conditions and when switching between them may be useful." },
-    { title: "Systematic Trading Strategies", summary: "I’m researching pairs trading, mean reversion, and moving-average crossovers." },
+    { title: "Systematic Trading Strategies", summary: "I’m investigating how pairs trading, mean reversion, and moving-average crossovers can be expressed as systematic trading rules." },
   ],
 };
 
@@ -69,7 +73,7 @@ export const experience = [
     organization: "MobiOffice Software Innovations",
     role: "Web Development Intern",
     dates: "May–June 2025",
-    summary: "I built responsive interfaces from Figma designs, maintained code in GitHub, and updated XML sitemaps, robots.txt, and analytics integrations. My technical SEO work helped move most target keywords from around page 11 to page 1 in Google results.",
+    summary: "My technical SEO work helped move most target keywords from around page 11 to page 1 in Google results. I also built responsive interfaces from Figma designs, maintained code in GitHub, and updated XML sitemaps, robots.txt, and analytics integrations.",
     project: { href: "#standout", label: "View Standout" },
   },
   {
@@ -86,12 +90,17 @@ export const education = [
 ];
 
 export const leadership = [
-  { title: "Fountainhead School Computer Science Club · 2023–2026", summary: "I founded and led the school’s first Computer Science Club, recruited 20+ members, and led programming workshops and peer mentorship." },
-  { title: "PyWars", summary: "I led technical operations for an interschool Python competition with 150+ participants." },
+  { title: "Founder & President, Computer Science Club", context: "Fountainhead School · 2023–2026", metric: "20+ members recruited", summary: "I started my school’s first Computer Science Club and led programming workshops and peer mentorship." },
+  { title: "PyWars", context: "Interschool Python competition", metric: "150+ participants", summary: "I led technical operations for the competition." },
 ];
 
+export const xerox = {
+  amount: "$20,000",
+  title: "Xerox Award for Innovation & Information Technology",
+  context: "University of Rochester · Scholarship award",
+};
+
 export const recognition = [
-  "Xerox Award for Innovation & Information Technology, University of Rochester · $20,000 scholarship award",
   "IIT Madras Data Science & AI Certification · 86% on the final project (Honors)",
   "Savvy Global Fellowship · International entrepreneurship fellowship",
   "Pearson BTEC Level 3 IT qualification · Distinction",

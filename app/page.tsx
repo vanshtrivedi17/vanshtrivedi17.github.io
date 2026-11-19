@@ -1,65 +1,36 @@
+import Image from "next/image";
+import DiscoveryFlow from "./components/discovery-flow";
+import PathfindingDemo from "./components/pathfinding-demo";
+import SectionNav from "./components/section-nav";
 import {
-  education, experience, leadership, leher, navigation, otherProjects, pathfinding,
-  profile, recognition, research, skills, standout,
+  education, experience, leadership, leher, otherProjects, pathfinding,
+  profile, recognition, research, skills, standout, xerox,
 } from "../content/portfolio";
-
-function DiscoveryFlow() {
-  return (
-    <figure className="discovery">
-      <figcaption>Leher · Product schematic</figcaption>
-      <ol>
-        <li><strong>Discover</strong><span>Explore early-stage startups</span></li>
-        <li><strong>Match</strong><span>Find potential co-founders</span></li>
-        <li><strong>Connect</strong><span>Start a conversation</span></li>
-      </ol>
-    </figure>
-  );
-}
-
-function PathfindingGrid() {
-  return (
-    <figure className="path-figure">
-      <svg viewBox="0 0 240 120" role="img" aria-label="An illustrative route from the circular start to the square goal, turning around shaded obstacles">
-        <defs>
-          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M20 0H0V20" fill="none" stroke="#cad3e3" />
-          </pattern>
-        </defs>
-        <rect width="240" height="120" fill="url(#grid)" />
-        <path d="M60 60h40v40H60z M120 20h40v40h-40z M180 80h20v20h-20z" fill="#a9b5ca" />
-        <path d="M30 90V50h80v20h100V30" fill="none" stroke="#244ad4" strokeWidth="3" strokeLinejoin="round" />
-        <circle cx="30" cy="90" r="5" fill="#244ad4" />
-        <rect x="205" y="25" width="10" height="10" fill="#244ad4" />
-      </svg>
-      <figcaption>
-        <span>Illustrative route</span>
-        <ul aria-label="Grid legend"><li>● Start</li><li>■ Goal</li><li>▬ Path</li><li className="obstacle">■ Obstacle</li></ul>
-      </figcaption>
-    </figure>
-  );
-}
 
 export default function Home() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
-      <header className="shell masthead" id="top">
-        <a className="wordmark" href="#top">{profile.name}</a>
-        <nav aria-label="Main navigation">
-          <ul>{navigation.map(([id, label]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ul>
-        </nav>
+      <header className="masthead">
+        <div className="shell masthead-inner">
+          <a className="wordmark" href="#top">{profile.name}</a>
+          <SectionNav />
+        </div>
       </header>
-      <main className="shell" id="main">
+      <main className="shell" id="main" tabIndex={-1}>
         <section className="hero" aria-labelledby="name">
-          <h1 id="name">{profile.name}</h1>
+          <h1 id="name"><span>{profile.name}</span></h1>
           <div className="hero-details">
-            <p className="subtitle">{profile.subtitle}</p>
-            <div>
+            <div className="hero-copy">
+              <p className="subtitle">{profile.subtitle}</p>
               <p className="intro">{profile.intro}</p>
               <div className="actions">
                 <a className="primary" href="#work">View my work</a>
                 <a className="text-link" href="#contact">Get in touch</a>
               </div>
+            </div>
+            <div className="portrait">
+              <Image src="/linkedin-portrait.webp" alt="Vansh Trivedi" width={560} height={700} preload />
             </div>
           </div>
         </section>
@@ -77,7 +48,6 @@ export default function Home() {
                   <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
                 ))}
               </dl>
-              <p className="meta stack">{leher.stack}</p>
             </div>
             <DiscoveryFlow />
           </article>
@@ -85,10 +55,10 @@ export default function Home() {
             <article className="feature path-card">
               <p className="meta">{pathfinding.context}</p>
               <h3>{pathfinding.title}</h3>
-              <PathfindingGrid />
               <p>{pathfinding.summary}</p>
               <p>{pathfinding.contribution}</p>
               <p className="evidence">{pathfinding.result}</p>
+              <PathfindingDemo />
             </article>
             <article className="feature standout-card" id="standout">
               <p className="meta">{standout.context}</p>
@@ -145,22 +115,32 @@ export default function Home() {
             <div>
               <h3>Education</h3>
               {education.map(item => (
-                <div className="entry" key={item.school}><h4>{item.school}</h4><p className="meta">{item.details}</p><p>{item.extra}</p></div>
+                <div className="entry" key={item.school}><h4>{item.school}</h4><p className="meta">{item.details}</p><p className="meta">{item.extra}</p></div>
               ))}
             </div>
             <div>
               <h3>Leadership</h3>
               {leadership.map(item => (
-                <div className="entry" key={item.title}><h4>{item.title}</h4><p>{item.summary}</p></div>
+                <article className="entry leadership-entry" key={item.title}>
+                  <h4>{item.title}</h4>
+                  <p className="meta">{item.context}</p>
+                  <p className="achievement">{item.metric}</p>
+                  <p>{item.summary}</p>
+                </article>
               ))}
             </div>
             <div>
               <h3>Recognition</h3>
+              <div className="xerox">
+                <p className="achievement">{xerox.amount}</p>
+                <h4>{xerox.title}</h4>
+                <p className="meta">{xerox.context}</p>
+              </div>
               <ul className="recognition">{recognition.map(item => <li key={item}>{item}</li>)}</ul>
             </div>
             <div>
               <h3>Skills</h3>
-              <dl className="skills">{skills.map(([label, list]) => <div key={label}><dt>{label}</dt><dd>{list}</dd></div>)}</dl>
+              <dl className="skills">{skills.map(([label, list]) => <div key={label}><dt>{label}</dt><dd className="meta">{list}</dd></div>)}</dl>
             </div>
           </div>
         </section>

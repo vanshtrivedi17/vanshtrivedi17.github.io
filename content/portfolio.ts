@@ -6,6 +6,7 @@ export const profile = {
   intro: "I founded and built Leher, a startup networking platform that reached 100+ users and secured 8+ international startup partnerships. At U of T, I contribute to UTESCA’s live website and research systematic trading strategies with the Quantitative Finance Club.",
   email: "vansh.trivedi17@gmail.com",
   linkedin: "https://www.linkedin.com/in/vansh-trivedi-928486260/",
+  github: "https://github.com/vanshtrivedi17",
   location: "Toronto, Ontario",
   site: "https://vanshtrivedi17.github.io/",
   portrait: { src: "/linkedin-portrait.webp", width: 560, height: 700 },

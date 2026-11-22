@@ -51,7 +51,7 @@ const profilePage = {
     alternateName: profile.fullName,
     url: profile.site,
     image: portraitUrl,
-    sameAs: [profile.linkedin],
+    sameAs: [profile.linkedin, profile.github],
     affiliation: {
       "@type": "CollegeOrUniversity",
       name: "University of Toronto",
@@ -230,6 +230,7 @@ export default function Home() {
         <address>
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
           <a href={profile.linkedin}>LinkedIn</a>
+          <a href={profile.github}>GitHub</a>
           <span>{profile.location}</span>
         </address>
       </footer>

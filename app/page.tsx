@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import DiscoveryFlow from "./components/discovery-flow";
 import PathfindingDemo from "./components/pathfinding-demo";
@@ -7,9 +8,66 @@ import {
   profile, recognition, research, skills, xerox,
 } from "../content/portfolio";
 
+const title = `${profile.name} | University of Toronto Computer Science`;
+const description = `${profile.fullName} studies Computer Science at the University of Toronto and graduated from Fountainhead School in Surat. See his projects and research.`;
+const portraitAlt = `Portrait of ${profile.name}`;
+const portraitUrl = new URL(profile.portrait.src, profile.site).href;
+const socialImage = {
+  url: portraitUrl,
+  alt: portraitAlt,
+  width: profile.portrait.width,
+  height: profile.portrait.height,
+  type: "image/webp",
+};
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: profile.site },
+  verification: { google: "1kSfF_a_EiMSNp3GMvnjEYhIy1ITyDRCQR7m1oxLCn8" },
+  robots: { index: true, follow: true, "max-image-preview": "large" },
+  openGraph: {
+    title,
+    description,
+    url: profile.site,
+    type: "profile",
+    siteName: profile.name,
+    locale: "en_CA",
+    images: [socialImage],
+  },
+  twitter: { card: "summary", title, description, images: [socialImage] },
+};
+
+const profilePage = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  url: profile.site,
+  name: title,
+  description,
+  mainEntity: {
+    "@type": "Person",
+    "@id": new URL("#person", profile.site).href,
+    name: profile.name,
+    alternateName: profile.fullName,
+    url: profile.site,
+    image: portraitUrl,
+    sameAs: [profile.linkedin],
+    affiliation: {
+      "@type": "CollegeOrUniversity",
+      name: "University of Toronto",
+      alternateName: ["U of T", "UofT"],
+    },
+    alumniOf: { "@type": "School", name: "Fountainhead School" },
+  },
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePage).replace(/</g, "\\u003c") }}
+      />
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="masthead">
         <div className="shell masthead-inner">
@@ -23,6 +81,7 @@ export default function Home() {
           <div className="hero-details">
             <div className="hero-copy">
               <p className="subtitle">{profile.subtitle}</p>
+              <p className="intro">{profile.bio}</p>
               <p className="intro">{profile.intro}</p>
               <div className="actions">
                 <a className="primary" href="#work">View my work</a>
@@ -30,7 +89,7 @@ export default function Home() {
               </div>
             </div>
             <div className="portrait">
-              <Image src="/linkedin-portrait.webp" alt="Vansh Trivedi" width={560} height={700} preload />
+              <Image {...profile.portrait} alt={portraitAlt} preload />
             </div>
           </div>
         </section>

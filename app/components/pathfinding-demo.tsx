@@ -17,6 +17,11 @@ const stepTime = 19;
 const x = (cell: number) => cell % width * size;
 const y = (cell: number) => Math.floor(cell / width) * size;
 const points = (route: number[]) => route.map(cell => `${x(cell) + size / 2},${y(cell) + size / 2}`).join(" ");
+const gridPaths = { open: "", wall: "" };
+cells.forEach((_, cell) => {
+  const type = initialWalls.has(cell) ? "wall" : "open";
+  gridPaths[type] += `M${x(cell)} ${y(cell)}h${size}v${size}h-${size}Z`;
+});
 
 function Board({ algorithm, result, oldRoute }: {
   algorithm: (typeof algorithms)[number]; result?: SearchResult; oldRoute?: number[];
@@ -44,9 +49,8 @@ function Board({ algorithm, result, oldRoute }: {
     <figure className="algorithm-board" ref={figure} data-waiting={Boolean(result) && !visible ? "" : undefined}>
       <figcaption><strong>{algorithm.title}</strong><span>{algorithm.detail}</span></figcaption>
       <svg viewBox={`0 0 ${width * size} ${height * size}`} role="img" aria-label={`${algorithm.title} search grid`}>
-        {cells.map((_, cell) => (
-          <rect key={cell} className={initialWalls.has(cell) ? "board-wall" : "board-cell"} x={x(cell)} y={y(cell)} width={size} height={size} />
-        ))}
+        <path className="board-cell" d={gridPaths.open} />
+        <path className="board-wall" d={gridPaths.wall} />
         {trace.map((cell, index) => (
           <rect key={index} className="board-explored" x={x(cell) + 1} y={y(cell) + 1} width={size - 2} height={size - 2} style={{ animationDelay: `${delay + index * stepTime}ms` }} />
         ))}

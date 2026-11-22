@@ -58,10 +58,7 @@ a:hover { color: var(--color-cobalt); text-decoration: underline; }
 .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
 @media (prefers-reduced-motion: no-preference) {
   .hero h1 > span { animation: reveal-name .46s cubic-bezier(.2, .75, .25, 1) both; }
-  .hero :is(.portrait, .hero-copy, .actions) { animation: reveal-detail .36s ease-out both; }
-  .hero .portrait { animation-delay: .33s; }
-  .hero .hero-copy { animation-delay: .4s; }
-  .hero .actions { animation-delay: .5s; }
+  .hero .actions { animation: reveal-detail .36s ease-out both; }
 }
 @keyframes reveal-name {
   from { clip-path: inset(100% -10% -.18em); transform: translateY(.22em); }

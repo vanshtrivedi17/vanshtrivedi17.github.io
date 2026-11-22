@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: profile.site },
-  verification: { google: "1kSfF_a_EiMSNp3GMvnjEYhIy1ITyDRCQR7m1oxLCn8" },
+  verification: { google: "vKASKDAfNX52pqbcwr1UmIZ-fbOatsxWXXHZLm52ZCM" },
   robots: { index: true, follow: true, "max-image-preview": "large" },
   openGraph: {
     title,

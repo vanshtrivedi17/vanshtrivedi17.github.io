@@ -4,7 +4,7 @@ export const profile = {
   subtitle: "University of Toronto · Computer Science",
   bio: "I’m Vansh Jigesh Trivedi. I study Computer Science at U of T in Toronto, Ontario, and earned my IB Diploma at Fountainhead School in Surat, India.",
   intro: "I founded and built Leher, a startup networking platform that reached 100+ users and secured 8+ international startup partnerships. At U of T, I contribute to UTESCA’s live website and research systematic trading strategies with the Quantitative Finance Club.",
-  email: "vansh.trivedi17@gmail.com",
+  email: "vansh.trivedi@mail.utoronto.ca",
   linkedin: "https://www.linkedin.com/in/vansh-trivedi-928486260/",
   github: "https://github.com/vanshtrivedi17",
   location: "Toronto, Ontario",
